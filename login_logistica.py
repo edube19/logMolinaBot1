@@ -5,16 +5,26 @@ from recursos import *
 def run(playwright: Playwright) -> None:
     
     try:
+        #100 ALMACEN CENTRAL LA MOLINA
+        #101 ALMACEN BAR LA MOLINA
+        #102 ALMACEN COCINA LA MOLINA
+        #103 EVENTOS LA MOLINA
+        #104 HOSPEDAJE LA MOLINA
+        #105 SERVICIOS GENERALES LA MOLINA
+        #107 TESORERIA MOLINA
+        #109 LOGISTICA MOLINA
+        #110 ADMINISTRACION MOLINA
+
         filename = 'datos.xlsx'
         #datos
         #articulo = 'QUESO EDAM'
-        factura = '20601452651'
-        cod_serie = 'E001'
-        num_serie = '12654'
-        destino = '102'
+        #factura = '20601452651'
+        #cod_serie = 'E001'
+        #num_serie = '12654'
+        #destino = '102'
         #cantidad = '5'
         #precio_unitario = '45.50' 
-        lista_productos = extraer_datos(filename)
+        lista_productos,datos_factura = extraer_datos(filename)
         long_lista_productos = len(lista_productos)
         print('cantidad de items ',str(long_lista_productos))
 
@@ -34,7 +44,7 @@ def run(playwright: Playwright) -> None:
             cantidad = producto['cantidad']
             precio_unitario = producto['precio_unitario']
             main(page,articulo,factura,cod_serie,num_serie,destino,cantidad,precio_unitario)'''
-        main(page,lista_productos,long_lista_productos,factura,cod_serie,num_serie,destino)
+        main(page,lista_productos,datos_factura,long_lista_productos)
         context.close()
         browser.close()
 
