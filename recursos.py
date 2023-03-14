@@ -13,11 +13,8 @@ def ingreso(page):
 #ingreso a la seccion de ordenes de compra y registro de los datos
 def main(page,lista_productos,datos_factura,long_lista_productos):
     elemento_factura = datos_factura[0]
-    print(elemento_factura)
     destino = elemento_factura["destino"]
     opcion = obtener_valor(destino)
-    print(opcion)
-
     if opcion!= None:
         factura = str(elemento_factura["factura"])
         cod_serie = str(elemento_factura["cod_serie"])
